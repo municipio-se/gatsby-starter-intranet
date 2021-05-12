@@ -6,7 +6,17 @@ export const query = graphql`
       columnWidth
       hidden
       key
-      node {
+      module: node {
+        id
+        ... on WP_NodeWithTitle {
+          title
+        }
+        hideTitle
+        contentType {
+          node {
+            name
+          }
+        }
         # ... on WP_ModContacts {
         #   ...WP_ModContacts
         # }
