@@ -32,9 +32,9 @@ export const query = graphql`
         ... on WP_ModNotice {
           ...WP_ModNotice
         }
-        # ... on WP_ModPosts {
-        #   ...WP_ModPosts
-        # }
+        ... on WP_ModPosts {
+          ...WP_ModPosts
+        }
         ... on WP_ModText {
           ...WP_ModText
         }
