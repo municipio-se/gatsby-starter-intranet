@@ -5,5 +5,8 @@ export const query = graphql`
     id
     isFrontPage
     modifiedGmt
+    # managedBy {
+    #   managedBy
+    # }
   }
 `;
