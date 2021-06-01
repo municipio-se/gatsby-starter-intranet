@@ -1,4 +1,4 @@
-import parentTheme from "@municipio/gatsby-theme-basic/src/theme";
+import parentTheme from "@municipio/gatsby-theme-intranet/src/theme";
 import { mergeThemes } from "@whitespace/components";
 
 import childTheme from "../../theme";

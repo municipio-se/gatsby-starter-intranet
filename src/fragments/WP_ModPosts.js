@@ -6,6 +6,7 @@ export const query = graphql`
       postsDisplayAs
       postsFields
       postsHighlight
+      layout
     }
     modPostsDataSource {
       postsDataSource
