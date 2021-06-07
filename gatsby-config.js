@@ -38,6 +38,9 @@ export const plugins = [
         url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
         refetchInterval: process.env.WORDPRESS_REFETCH_INTERVAL,
       },
+      auth: {
+        requireLogin: false,
+      },
       // XXX: postcss.config.js doesn’t seem to load automatically
       postCss: { postcssOptions: require("./postcss.config")() },
     },
