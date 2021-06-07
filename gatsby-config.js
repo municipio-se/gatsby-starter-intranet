@@ -1,6 +1,21 @@
 import { loadConfig } from "@municipio/gatsby-theme-intranet";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
 loadConfig();
+
+export const developMiddleware = (app) => {
+  if (process.env.API_PROXY) {
+    app.use(
+      "/api",
+      createProxyMiddleware({
+        target: process.env.API_PROXY,
+        secure: !process.env.API_PROXY_INSECURE,
+        changeOrigin: true,
+        followRedirects: false,
+      }),
+    );
+  }
+};
 
 export const siteMetadata = {
   siteUrl: process.env.GATSBY_SITE_URL,
