@@ -7,6 +7,7 @@ export const query = graphql`
       postsFields
       postsHighlight
       layout
+      theme
     }
     modPostsDataSource {
       postsDataSource
@@ -22,6 +23,7 @@ export const query = graphql`
         postContentMedia {
           ...WP_ImageWide
         }
+        theme
       }
       postsDataPostType {
         name
