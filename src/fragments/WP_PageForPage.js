@@ -8,5 +8,8 @@ export const query = graphql`
     # managedBy {
     #   managedBy
     # }
+    pageAppearance {
+      template
+    }
   }
 `;
