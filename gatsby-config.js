@@ -12,14 +12,14 @@ export const developMiddleware = (app) => {
         secure: !process.env.API_PROXY_INSECURE,
         changeOrigin: true,
         followRedirects: false,
-      })
+      }),
     );
   }
 };
 
 export const siteMetadata = {
   siteUrl: process.env.GATSBY_SITE_URL,
-  title: `Wordpress Starter`,
+  title: `Municipio`,
   description: `Starter site using Wordpress and Gatsby`,
 };
 
