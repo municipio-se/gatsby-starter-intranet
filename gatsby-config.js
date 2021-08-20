@@ -12,7 +12,7 @@ export const developMiddleware = (app) => {
         secure: !process.env.API_PROXY_INSECURE,
         changeOrigin: true,
         followRedirects: false,
-      }),
+      })
     );
   }
 };
