@@ -3,16 +3,36 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 
 loadConfig();
 
+function falsey(value) {
+  try {
+    return !JSON.parse(value);
+  } catch {
+    return !value;
+  }
+}
+
+function truey(value) {
+  try {
+    return !!JSON.parse(value);
+  } catch {
+    return !!value;
+  }
+}
+
+const REQUIRE_LOGIN = truey(process.env.REQUIRE_LOGIN);
+
+console.log(`REQUIRE_LOGIN = ${REQUIRE_LOGIN}`);
+
 export const developMiddleware = (app) => {
   if (process.env.API_PROXY) {
     app.use(
       "/api",
       createProxyMiddleware({
         target: process.env.API_PROXY,
-        secure: !process.env.API_PROXY_INSECURE,
+        secure: falsey(process.env.API_PROXY_INSECURE),
         changeOrigin: true,
         followRedirects: false,
-      })
+      }),
     );
   }
 };
@@ -40,7 +60,7 @@ export const plugins = [
         nodesPerFetch: Number(process.env.WORDPRESS_NODES_PER_FETCH),
       },
       auth: {
-        requireLogin: false,
+        requireLogin: REQUIRE_LOGIN,
       },
       // XXX: postcss.config.js doesn’t seem to load automatically
       postCss: { postcssOptions: require("./postcss.config")() },

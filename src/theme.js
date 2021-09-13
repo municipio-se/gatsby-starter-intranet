@@ -137,6 +137,7 @@ export default {
     background: "rgba(255, 255, 255, 0.8)",
     height: "56px",
   },
+  toolbarButton: {},
   form: {
     search: {
       background: "#f1f3f5",
