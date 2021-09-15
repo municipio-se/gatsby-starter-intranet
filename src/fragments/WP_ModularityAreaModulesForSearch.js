@@ -16,12 +16,12 @@ export const query = graphql`
         # ... on WP_ModGallery {
         #   ...WP_ModGalleryForSearch
         # }
-        ... on WP_ModImage {
-          ...WP_ModImageForSearch
-        }
-        ... on WP_ModNotice {
-          ...WP_ModNoticeForSearch
-        }
+        # ... on WP_ModImage {
+        #   ...WP_ModImageForSearch
+        # }
+        # ... on WP_ModNotice {
+        #   ...WP_ModNoticeForSearch
+        # }
         ... on WP_ModPosts {
           ...WP_ModPostsForSearch
         }
