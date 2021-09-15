@@ -16,3 +16,14 @@ clearFilterLabel: Rensa filtrering
 page: Sida
 nextPage: Nästa sida
 previousPage: Föregående sida
+
+edit: Redigera
+done: Klar
+
+myBookmarksLabel: Bokmärken
+allBookmarksLabel: Visa alla bokmärken
+hideBookmarksLabel: Fäll ihop bokmärken
+
+myToolsLabel: Verktyg
+allToolsLabel: Visa alla verktyg
+hideToolsLabel: Fäll ihop verktyg

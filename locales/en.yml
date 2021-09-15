@@ -16,3 +16,14 @@ clearFilterLabel: Clear filters
 page: Page
 nextPage: Next page
 previousPage: Previous page
+
+edit: Edit
+done: Done
+
+myBookmarksLabel: Bookmarks
+allBookmarksLabel: Show all bookmarks
+hideBookmarksLabel: Collapse bookmarks
+
+myToolsLabel: Tools
+allToolsLabel: Show all tools
+hideToolsLabel: Collapse tools
