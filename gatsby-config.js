@@ -38,9 +38,10 @@ export const developMiddleware = (app) => {
 };
 
 export const siteMetadata = {
+  author: "Municipio",
+  description: `Starter site using Wordpress and Gatsby`,
   siteUrl: process.env.GATSBY_SITE_URL,
   title: `Municipio`,
-  description: `Starter site using Wordpress and Gatsby`,
 };
 
 export const plugins = [
@@ -58,6 +59,30 @@ export const plugins = [
         url: process.env.GATSBY_WORDPRESS_URL,
         refetchInterval: process.env.WORDPRESS_REFETCH_INTERVAL,
         nodesPerFetch: Number(process.env.WORDPRESS_NODES_PER_FETCH),
+      },
+      siteIndex: {
+        includePage: ({ page }) =>
+          page.context.contentType && page.context.contentType.name === "page",
+        localizations: {
+          en: {
+            basePath: "/content",
+            alphabet: Array.from("abcdefghijklmnopqrstuvwxyz"),
+            restInitial: {
+              path: "/other-pages",
+              title: "Other pages",
+              label: "#",
+            },
+          },
+          sv: {
+            basePath: "/innehall",
+            alphabet: Array.from("abcdefghijklmnopqrstuvwxyzåäö"),
+            restInitial: {
+              path: "/ovriga-sidor",
+              title: "Övriga sidor",
+              label: "#",
+            },
+          },
+        },
       },
       auth: {
         requireLogin: REQUIRE_LOGIN,
