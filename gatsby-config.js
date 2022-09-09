@@ -1,23 +1,7 @@
-import { loadConfig } from "@municipio/gatsby-theme-intranet";
+import { falsey, loadConfig, truey } from "@municipio/gatsby-theme-intranet";
 import { createProxyMiddleware } from "http-proxy-middleware";
 
 loadConfig();
-
-function falsey(value) {
-  try {
-    return !JSON.parse(value);
-  } catch {
-    return !value;
-  }
-}
-
-function truey(value) {
-  try {
-    return !!JSON.parse(value);
-  } catch {
-    return !!value;
-  }
-}
 
 const REQUIRE_LOGIN = truey(process.env.REQUIRE_LOGIN);
 
@@ -62,6 +46,34 @@ export const plugins = [
       auth: {
         requireLogin: REQUIRE_LOGIN,
       },
+      search: {
+        paths: ["sok", "en/search"],
+      },
+      siteIndex: {
+        includePage: ({ page }) =>
+          page.context.contentType && page.context.contentType.name === "page",
+        localizations: {
+          sv: {
+            basePath: "/innehall",
+            alphabet: Array.from("abcdefghijklmnopqrstuvwxyzåäö"),
+            restInitial: {
+              path: "/övriga-sidor",
+              title: "Övriga sidor",
+              label: "#",
+            },
+          },
+          en: {
+            basePath: "/content",
+            alphabet: Array.from("abcdefghijklmnopqrstuvwxyz"),
+            restInitial: {
+              path: "/other-pages",
+              title: "Other pages",
+              label: "#",
+            },
+          },
+        },
+      },
+      enableSEO: true,
       // XXX: postcss.config.js doesn’t seem to load automatically
       postCss: { postcssOptions: require("./postcss.config")() },
     },
